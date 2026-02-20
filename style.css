@@ -356,7 +356,7 @@ h1, h2, h3 {
 .timeline-time {
     font-size: 1.2rem;
     color: #b89474;
-    font-weight: 500;
+    font-weight: 800;  /* было 500, станет жирнее */
     background: #f9f5f0;
     padding: 4px 12px;
     border-radius: 15px;
@@ -1857,3 +1857,237 @@ footer p {
         grid-template-columns: 1fr;
     }
 } */
+
+/* Кнопка для карты */
+.map-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #d4b89c, #b89474);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0 5px 15px rgba(184, 148, 116, 0.2);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.map-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.7s;
+}
+
+.map-button:hover::before {
+    left: 100%;
+}
+
+.map-button:active {
+    transform: scale(0.98);
+    background: linear-gradient(135deg, #b89474, #a07d5f);
+}
+
+.map-button i {
+    font-size: 1.2rem;
+}
+
+
+/* Музыкальный плеер */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.player-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #d4b89c, #b89474);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0 5px 20px rgba(184, 148, 116, 0.3);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.player-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.7s;
+}
+
+.player-toggle:hover::before {
+    left: 100%;
+}
+
+.player-toggle:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, #b89474, #a07d5f);
+}
+
+.player-toggle i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.player-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+}
+
+/* Анимация вращения для иконки при воспроизведении */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.fa-music {
+    animation: rotate 3s linear infinite;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 480px) {
+    .music-player {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .player-toggle {
+        padding: 12px 18px;
+    }
+    
+    .player-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .player-toggle {
+        padding: 10px 15px;
+    }
+    
+    .player-text {
+        font-size: 0.95rem;
+    }
+}
+
+/* Если хотите показывать только иконку на маленьких экранах */
+@media screen and (max-width: 320px) {
+    .player-text {
+        display: none;
+    }
+    
+    .player-toggle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 0;
+    }
+    
+    .player-toggle i {
+        margin: 0;
+    }
+}
+
+
+
+/* Вариант 1: через nth-child */
+.timeline-item:nth-child(1) .timeline-header h3,  /* Welcome */
+.timeline-item:nth-child(2) .timeline-header h3,  /* Церемония */
+.timeline-item:nth-child(3) .timeline-header h3 { /* Банкет */
+    font-weight: 700;
+}
+
+
+.form-header p.deadline-text {
+    font-weight: 700 !important;
+    color: #343333; /* для проверки - если текст станет коричневым, значит селектор работает */
+}
+
+
+/* Затемнение всего текста (только шрифт, без иконок) */
+body, p, h1, h2, h3, h4, h5, h6, span, a, label, input, textarea, button,
+.option-text, .timeline-content p, .timeline-content h3, .wishes-text, 
+.greeting-text, .greeting-signature, .form-header p, .deadline-text,
+.timeline-header h3, .timeline-time, .timeline-location, .timeline-address, 
+.timeline-description, .timeline-note span, .section-title, .section-subtitle, 
+.rsvp-subtitle, .form-footer p, .chat-content p, .chat-note span, 
+.alcohol-text, .gallery-title, .dresscode-text, .footer-note,
+.countdown h2, .time-unit span, .time-unit small,
+.names, .and, .date, .subtitle,
+.wishes-card p, .host-phone,
+.form-group label span, .attendance-label span,
+.greeting-content h2, .signature-names,
+.chat-content h3, .elegant-btn span, .submit-btn span, .success-content p,
+.success-content h3, .player-text, .rsvp-header h2, .rsvp-header p {
+    color: #2c2c2c !important;
+}
+
+/* Сохраняем оригинальные цвета для текста на темных фонах */
+.hero-content .names,
+.hero-content .and,
+.hero-content .date,
+.hero-content .subtitle,
+.hero-content a,
+.countdown h2,
+.countdown .time-unit span,
+.countdown .time-unit small,
+.loader .loader-text,
+footer p,
+.footer-note {
+    color: inherit !important;
+}
+
+/* Сохраняем оригинальные цвета для иконок (Font Awesome) */
+i, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone {
+    color: inherit !important;
+}
+
+/* Для кнопок оставляем их стили */
+.elegant-btn, .submit-btn, .success-btn, .map-button, .player-toggle {
+    color: inherit !important;
+}
+
+/* Для плейсхолдеров */
+::placeholder {
+    color: #4a4a4a !important;
+}
