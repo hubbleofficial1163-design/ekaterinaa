@@ -361,25 +361,16 @@ document.head.appendChild(style);
 console.log('Свадебный сайт загружен. Дата свадьбы:', CONFIG.WEDDING_DATE);
 
 // ==============================================
-// МУЗЫКАЛЬНЫЙ ПЛЕЕР
+// МУЗЫКАЛЬНЫЙ ПЛЕЕР В HERO СЕКЦИИ
 // ==============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    const audio = document.getElementById('weddingAudio');
-    const toggleBtn = document.getElementById('playerToggle');
-    const icon = document.getElementById('playerIcon');
-    const text = toggleBtn.querySelector('.player-text');
+    const audio = document.getElementById('heroWeddingAudio');
+    const toggleBtn = document.getElementById('heroPlayerToggle');
+    const icon = document.getElementById('heroPlayerIcon');
+    const text = toggleBtn.querySelector('.hero-player-text');
     
     let isPlaying = false;
-    
-    // Попытка автовоспроизведения (может быть заблокирована браузером)
-    audio.play().then(() => {
-        isPlaying = true;
-        updatePlayerUI(true);
-    }).catch(() => {
-        // Автовоспроизведение заблокировано, оставляем кнопку в состоянии "Play"
-        updatePlayerUI(false);
-    });
     
     toggleBtn.addEventListener('click', function(e) {
         e.preventDefault();
@@ -392,12 +383,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 updatePlayerUI(true);
             }).catch(error => {
                 console.log('Ошибка воспроизведения:', error);
-                // Показываем сообщение об ошибке (опционально)
-                showMusicError();
             });
         }
         
-        // Тактильный отклик для мобильных устройств
+        // Тактильный отклик
         if (navigator.vibrate) {
             navigator.vibrate(30);
         }
@@ -409,50 +398,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (playing) {
             icon.className = 'fas fa-music';
             text.textContent = 'Выключить музыку';
-            toggleBtn.style.background = 'linear-gradient(135deg, #b89474, #a07d5f)';
-            
-            // Добавляем класс для анимации
-            icon.style.animation = 'rotate 3s linear infinite';
         } else {
             icon.className = 'fas fa-play';
             text.textContent = 'Включить музыку';
-            toggleBtn.style.background = 'linear-gradient(135deg, #d4b89c, #b89474)';
-            
-            // Убираем анимацию
-            icon.style.animation = 'none';
         }
-    }
-    
-    // Опционально: показываем сообщение, если музыка не может воспроизвестись
-    function showMusicError() {
-        const errorMsg = document.createElement('div');
-        errorMsg.className = 'music-error';
-        errorMsg.innerHTML = 'Нажмите на кнопку, чтобы включить музыку';
-        errorMsg.style.cssText = `
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: #fff5e6;
-            color: #5a4c3e;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border: 1px solid #d4b89c;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 998;
-            animation: fadeInOut 3s ease forwards;
-        `;
-        
-        document.body.appendChild(errorMsg);
-        
-        setTimeout(() => {
-            errorMsg.remove();
-        }, 3000);
     }
     
     // Обработка событий аудио
     audio.addEventListener('ended', function() {
-        // Если трек закончился, возвращаем кнопку в исходное состояние
         updatePlayerUI(false);
     });
     
@@ -464,15 +417,3 @@ document.addEventListener('DOMContentLoaded', function() {
         updatePlayerUI(true);
     });
 });
-
-// Добавляем стили для сообщения об ошибке (если используете)
-const musicStyles = document.createElement('style');
-musicStyles.textContent = `
-    @keyframes fadeInOut {
-        0% { opacity: 0; transform: translateY(10px); }
-        10% { opacity: 1; transform: translateY(0); }
-        90% { opacity: 1; transform: translateY(0); }
-        100% { opacity: 0; transform: translateY(-10px); }
-    }
-`;
-document.head.appendChild(musicStyles);
