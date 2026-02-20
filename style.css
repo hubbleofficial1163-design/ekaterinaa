@@ -2091,3 +2091,89 @@ i, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone {
 ::placeholder {
     color: #4a4a4a !important;
 }
+
+
+/* Музыкальный плеер в hero секции */
+.hero-music-player {
+    transform: translateY(-300px);
+    margin-bottom: 30px; /* Отступ снизу */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-player-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #d4b89c; /* Обычный цвет, как на других кнопках */
+    color: white;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: auto;
+    min-width: 220px;
+}
+
+.hero-player-toggle:active {
+    transform: scale(0.98);
+    background: #b89474; /* Темнее при нажатии */
+}
+
+.hero-player-toggle i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero-player-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Анимация вращения для иконки */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.fa-music {
+    animation: rotate 3s linear infinite;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 480px) {
+    .hero-music-player {
+        margin-bottom: 25px;
+    }
+    
+    .hero-player-toggle {
+        padding: 12px 25px;
+        min-width: 200px;
+        font-size: 1rem;
+    }
+    
+    .hero-player-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .hero-player-toggle {
+        padding: 10px 20px;
+        min-width: 180px;
+    }
+}
