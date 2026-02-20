@@ -5,7 +5,7 @@
 
 // Конфигурация
 const CONFIG = {
-    APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbym9bx_OwEsYGnBj9I5Pqo2U-HAfQGeyEJbv2EF_Uy2EVskice2MvGLCtidHZr3Ka4tyw/exec', // ЗАМЕНИТЕ НА ВАШ URL
+    APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxV4TkhQwhGE8J7EHY8pAQp13vx11_RGptGbh9jToQiYekaz6Vat7jwOFs8aqmjf4CfIA/exec', // ЗАМЕНИТЕ НА ВАШ URL
     TELEGRAM_CHAT_URL: 'https://t.me/+hOTwCMbLMwI3ZDYy', // ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ НА ЧАТ
     WEDDING_DATE: '2026-06-11T15:30:00' // Дата свадьбы 11 июня 2026
 };
@@ -359,3 +359,4 @@ document.head.appendChild(style);
 // Логирование для отладки (можно удалить в продакшене)
 
 console.log('Свадебный сайт загружен. Дата свадьбы:', CONFIG.WEDDING_DATE);
+
