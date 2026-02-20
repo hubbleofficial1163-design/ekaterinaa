@@ -20,6 +20,17 @@
         <div class="hero-blur"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <!-- Музыкальный плеер -->
+            <div class="music-player">
+                <button class="player-toggle" id="playerToggle">
+                    <i class="fas fa-play" id="playerIcon"></i>
+                    <span class="player-text">Включить музыку</span>
+                </button>
+                <audio id="weddingAudio" loop>
+                    <source src="1.mp3" type="audio/mpeg">
+                    Ваш браузер не поддерживает аудио
+                </audio>
+            </div>
             <h1 class="names">Михаил <span class="and">&</span> Екатерина</h1>
             <p class="date">11 июня 2026</p>
             <p class="subtitle">Приглашаем вас разделить с нами начало нашей вечной истории</p>
@@ -89,7 +100,7 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <h3>Церемония</h3>
-                            <span class="timeline-time">15:30</span>
+                            <span class="timeline-time">16:00</span>
                         </div>
                         <p class="timeline-location">Важный момент нашей свадьбы </p>
                     </div>
@@ -109,7 +120,7 @@
                             <span class="timeline-time">17:00</span>
                         </div>
                         <p class="timeline-location">Ресторан «Queens Lake”</p>
-                        <p class="timeline-address">Коттеджный Коселок Княжье озеро.</p>
+                        <p class="timeline-address">Коттеджный Поселок Княжье озеро.</p>
                         <div class="timeline-description">
                             <p>Время вкусной еды, танцев и развлечений.</p>
                         </div>
@@ -120,6 +131,11 @@
                     </div>
                 </div>
             </div>
+
+            <a href="https://yandex.ru/maps/-/CPaSuCM7" target="_blank" rel="noopener noreferrer" class="map-button">
+            <i class="fas fa-map-marked-alt"></i>
+            <span>Посмотреть на карте</span>
+</a>
         </div>
     </section>
 
@@ -262,18 +278,14 @@
                     </div>
                     <h3>Чат для гостей</h3>
                     <p>В скором времени мы создадим телеграм-группу нашего праздника, где можно будет узнать дополнительную информацию, а также поделиться фотографиями и видео в день свадьбы и после.</p>
-                    <a href="https://t.me/+hOTwCMbLwI3ZDYy" class="elegant-btn chat-link">
-                        <i class="fas fa-comments"></i>
-                        <span>Присоединиться к чату</span>
-                    </a>
-                    <p class="chat-note"><i class="fas fa-info-circle"></i> Вы перейдете в чат Telegram</p>
+
                 </div>
             </div>
             
             <form id="rsvp-form" class="rsvp-form">
                 <div class="form-header">
                     <h3><i class="fas fa-pen-nib"></i> Ваш ответ</h3>
-                    <p>Пожалуйста, дайте ответ до 11 мая</p>
+                    <p class="deadline-text">Пожалуйста, дайте ответ до 11 мая</p>
                 </div>
                 
                 <div class="form-group">
