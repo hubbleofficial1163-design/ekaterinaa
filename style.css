@@ -132,7 +132,7 @@ h1, h2, h3 {
     z-index: 3;
     width: 100%;
     max-width: 500px;
-    padding: 100px 20px 20px;  /* ← увеличили верхний отступ */
+    /* padding: 100px 20px 20px;  ← увеличили верхний отступ */
         padding: 20px 20px 40px;  /* ← ИЗМЕНИ ЭТО */
     margin-bottom: -30vh;        /* ← ДОБАВЬ ЭТО */
 }
@@ -2095,7 +2095,7 @@ i, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone {
 
 /* Музыкальный плеер в hero секции */
 .hero-music-player {
-    transform: translateY(-300px);
+    transform: translateY(-230px);
     margin-bottom: 30px; /* Отступ снизу */
     text-align: center;
     position: relative;
