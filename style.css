@@ -1747,8 +1747,8 @@ footer p {
 
 /* Стили для палитры */
 .dresscode-palette {
-    margin-top: -80px;
-    margin-bottom: -65px;
+    margin-top: -40px;
+    margin-bottom: -45px;
     text-align: center;
     border-radius: 16px;
     overflow: hidden;
